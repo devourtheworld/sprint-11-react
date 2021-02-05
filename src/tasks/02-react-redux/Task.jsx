@@ -6,6 +6,8 @@ import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 
 // TODO Import the store, and use React-Redux's <Provider> inside <ReactReduxTask>
+import store from "./store";
+import {Provider} from "react-redux";
 
 const markdown = `# Task Description
 This is the same app as the UI Integration exercise.  The state tree stores a list of blog posts
@@ -25,12 +27,14 @@ tree have access to the Redux store automatically.`
 export default class ReactReduxTask extends Component {
     render() {
         return (
+            <Provider store={store}>
             <div>
                 <h3>React-Redux</h3>
                 <PostsList />
                 <NewPostForm />
                 <ReactMarkdown plugins={[gfm]} children={markdown} />
             </div>
+            </Provider>
         )
     }
 }

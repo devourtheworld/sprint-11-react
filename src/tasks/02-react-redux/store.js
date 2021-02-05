@@ -1,5 +1,5 @@
 import _ from "lodash";
-import {createStore} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import rootReducer from "./rootReducer";
 
 const initialState = {
